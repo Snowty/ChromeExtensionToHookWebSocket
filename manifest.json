@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "MyExtension",
+    "version": "1.0",
+    "description": "Save pictures",
+    "browser_action":{
+        "default_popup":"popup.html"
+    },
+    
+
+    "offline_enabled": true,
+
+    "permissions": [
+        "https://*/*",
+        "ws://*/*",
+        "debugger",
+        "activeTab",
+        "storage"
+    ],
+    "content_scripts" : [
+        {
+            "matches" : [ "https://*/*"],
+            "js" : ["contentscript.js"],
+            "run_at":"document_start"
+    }],
+    "web_accessible_resources":["inject.js"]
+}
